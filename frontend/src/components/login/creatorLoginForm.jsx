@@ -15,6 +15,8 @@ export default function SignupForm() {
 		price: "",
 		name: "",
 		description: "",
+		email_id: "",
+		wallet_address: "",
 	});
 
 	async function onChange(e) {
@@ -32,13 +34,15 @@ export default function SignupForm() {
 		}
 	}
 	async function uploadToIPFS() {
-		const { name, description, price } = formInput;
-		if (!name || !description || !price || !fileUrl) return;
+		const { name, description, price, email_id } = formInput;
+		if (!name || !description || !price || !fileUrl || !email_id) return;
 		/* first, upload to IPFS */
 		const data = JSON.stringify({
 			name,
 			description,
 			image: fileUrl,
+			wallet_address: localStorage.getItem("wallet_address"),
+			email_id,
 		});
 		try {
 			const added = await client.add(data);
@@ -80,6 +84,13 @@ export default function SignupForm() {
 						updateFormInput({ ...formInput, name: e.target.value })
 					}
 				/>
+				<input
+					placeholder="Email ID"
+					className="mt-8 border rounded p-4"
+					onChange={(e) =>
+						updateFormInput({ ...formInput, email_id: e.target.value })
+					}
+				/>
 				<textarea
 					placeholder="Asset Description"
 					className="mt-2 border rounded p-4"
@@ -100,7 +111,7 @@ export default function SignupForm() {
 					onClick={listNFTForSale}
 					className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg"
 				>
-					Create NFT
+					Sign Up
 				</button>
 			</div>
 		</div>
