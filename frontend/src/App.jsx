@@ -4,16 +4,9 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 // Styling
 import "./App.css";
 import home from "./components/home/home";
-<<<<<<< HEAD
 import Login from "./components/login/login";
 import CreatorLogin from "./components/login/creatorLogin";
-import Sidebar from "./components/creatorprofile/sections/Sidebar/Sidebar";
 import SignupForm from "./components/login/creatorLoginForm";
-=======
-import Login from "./components/Login/login";
-import CreatorLogin from "./components/Login/creatorLogin";
-import SignupForm from "./components/Login/creatorLoginForm";
->>>>>>> 170f7a784d8008254308e2a4c5a5c974c1f59cb2
 import Dashboard from "./components/Dashboard/Dashboard";
 import Common from "./Common";
 import creatorNFTMint from "./components/creatorNFTMint";
