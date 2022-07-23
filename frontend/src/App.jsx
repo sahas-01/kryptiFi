@@ -5,12 +5,14 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 import "./App.css";
 import creatorprofile from "./components/creatorprofile/creatorprofile";
 import home from "./components/home/home";
-import Login from "./components/Login/login";
-import CreatorLogin from "./components/Login/creatorLogin";
+import Login from "./components/login/login";
+import CreatorLogin from "./components/login/creatorLogin";
 import Sidebar from "./components/creatorprofile/sections/Sidebar/Sidebar";
-import SignupForm from "./components/Login/creatorLoginForm";
+import SignupForm from "./components/login/creatorLoginForm";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Common from "./Common";
+import creatorNFTMint from "./components/creatorNFTMint";
+import AdminItems from "./components/AdminItems";
 
 class App extends Component {
 	render() {
@@ -23,7 +25,9 @@ class App extends Component {
 					<Route exact path="/signupform" component={SignupForm} />
 					<Route exact path="/home" component={home} />
 					<Route path="/creator" component={creatorprofile} />
-				    <Route path="/dashboard" component={Dashboard} />
+					<Route path="/dashboard" component={Dashboard} />
+					<Route path="/nftmint" component={creatorNFTMint} />
+					<Route path="/adminitems" component={AdminItems} />
 
 				</Switch>
 			</div>
