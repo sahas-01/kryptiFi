@@ -1,51 +1,57 @@
-import React from "react";
-import image1 from "./../../../../images/blog/blog-01.jpg";
-import image2 from "./../../../../images/blog/blog-01.jpg";
-import image3 from "./../../../../images/blog/blog-01.jpg";
-import image4 from "./../../../../images/blog/blog-01.jpg";
+import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import axios from "axios";
 import BlogItem from "./BlogItem";
+import { marketplaceAddress } from "../../../../blockchain/config";
+import NFTMarketplace from "../../../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
-const blogData = [
-  {
-    id: 1,
-    image: image1,
-    title: "20 Best Prototyping and Design Tools for Product Design",
-    description:
-      "Prototyping Tool Prototyping is a process that enables faster creativity and effective experimentation for the product team.",
-  },
-  {
-    id: 2,
-    image: image2,
-    title: "15+ Top Sources to Download Free Stock Photos",
-    description:
-      "Wanna decorate your blog with photos? But don't have any photographic skills or fees to pay for photos?",
-  },
-  {
-    id: 3,
-    image: image3,
-    title: "15+ Free Startup Landing Page and Web Templates",
-    description:
-      "A landing page is a page designed to turn visitors into leads. It is separate from other pages on your...",
-  },
-  {
-    id: 4,
-    image: image4,
-    title: "10+ Sources to Download Free SVG Illustrations",
-    description:
-      "There is no doubt about the importance of Scalable Vector Graphics illustration today.",
-  },
-];
+const Blog = ({ wallet_address }) => {
+	const [nfts, setNfts] = useState([]);
+	useEffect(() => {
+		loadNFTs();
+	}, []);
+	async function loadNFTs() {
+		const provider = new ethers.providers.JsonRpcProvider();
+		const contract = new ethers.Contract(
+			marketplaceAddress,
+			NFTMarketplace.abi,
+			provider
+		);
+		console.log(contract);
+		const data = await contract.fetchMarketItems();
 
-const Blog = () => {
-  return (
-    <section className="pb-10">
-      <div className="flex flex-wrap md:px-4">
-        {blogData.map((blog, id) => (
-          <BlogItem blog={blog} key={id} />
-        ))}
-      </div>
-    </section>
-  );
+		const items = await Promise.all(
+			data.map(async (i) => {
+				const tokenUri = await contract.tokenURI(i.tokenId);
+				const meta = await axios.get(tokenUri);
+				console.log(meta.data);
+				let price = ethers.utils.formatUnits(i.price.toString(), "ether");
+				let item = {
+					price,
+					tokenId: i.tokenId.toNumber(),
+					seller: i.seller,
+					owner: i.owner,
+					image: meta.data.image,
+					name: meta.data.name,
+					description: meta.data.description,
+					wallet_address: meta.data.wallet_address,
+					email_id: meta.data.email_id,
+				};
+				if (item.wallet_address === wallet_address) return item;
+				else return null;
+			})
+		);
+		setNfts(items);
+	}
+	return (
+		<section className="pb-10">
+			<div className="flex flex-wrap md:px-4">
+				{nfts.map((blog, id) => (
+					<BlogItem blog={blog} key={id} />
+				))}
+			</div>
+		</section>
+	);
 };
 
 export default Blog;
