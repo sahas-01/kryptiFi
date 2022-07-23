@@ -4,7 +4,7 @@ import axios from "axios";
 import BlogItem from "./BlogItem";
 import { marketplaceAddress } from "../../../../blockchain/config";
 import NFTMarketplace from "../../../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
-
+import Web3Modal from 'web3modal'
 const Blog = ({ wallet_address }) => {
 	const [nfts, setNfts] = useState([]);
 	useEffect(() => {
@@ -43,11 +43,27 @@ const Blog = ({ wallet_address }) => {
 		);
 		setNfts(items);
 	}
+	async function buyNft(nft) {
+    /* needs the user to sign the transaction, so will use Web3Provider and sign it */
+    const web3Modal = new Web3Modal()
+    const connection = await web3Modal.connect()
+    const provider = new ethers.providers.Web3Provider(connection)
+    const signer = provider.getSigner()
+    const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+
+    /* user will be prompted to pay the asking proces to complete the transaction */
+    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')   
+    const transaction = await contract.createMarketSale(nft.tokenId, {
+      value: price
+    })
+    await transaction.wait()
+    loadNFTs()
+  }
 	return (
 		<section className="pb-10">
 			<div className="flex flex-wrap md:px-4">
 				{nfts.map((blog, id) => (
-					<BlogItem blog={blog} key={id} />
+					<BlogItem blog={blog} key={id} buyNft={buyNft} />
 				))}
 			</div>
 		</section>
