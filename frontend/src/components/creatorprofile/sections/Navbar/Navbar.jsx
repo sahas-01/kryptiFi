@@ -14,31 +14,18 @@ import Contact from "./../../pages/Contact/Contact";
 
 
 const navbarData = [
-  {
-    id: 1,
-    title: "About",
-    to: "/about",
-  },
-  {
-    id: 2,
-    title: "Services",
-    to: "/services",
-  },
+  
   {
     id: 3,
-    title: "Works",
+    title: "Highlights",
     to: "/works",
   },
   {
     id: 4,
-    title: "Blogs",
+    title: "NFTs",
     to: "/blogs",
   },
-  {
-    id: 5,
-    title: "Contact",
-    to: "/contact",
-  },
+  
 ];
 
 function Navbar() {
@@ -53,24 +40,15 @@ function Navbar() {
       </nav>
 
       <Switch>
-        <Route exact path="/">
-          <About />
-        </Route>
-        <Route path="/services">
-          <Service />
-        </Route>
+        
         <Route path="/works">
           <Portfolio />
         </Route>
         <Route path="/blogs">
           <Blog />
         </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
+        
+       
       </Switch>
     </Router>
   );
