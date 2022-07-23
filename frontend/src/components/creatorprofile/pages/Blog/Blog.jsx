@@ -35,7 +35,7 @@ const Blog = ({ wallet_address }) => {
 					name: meta.data.name,
 					description: meta.data.description,
 					wallet_address: meta.data.wallet_address,
-					email_id: meta.data.email_id,
+					type: meta.data.type,
 				};
 				if (item.wallet_address === wallet_address) return item;
 				else return null;
