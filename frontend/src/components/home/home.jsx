@@ -87,7 +87,7 @@ function home() {
 			<UNavbar />
 			<div>
 				<section className="pb-10">
-					<div className="grid grid-cols-3 md:px-4">
+					<div className="grid lg:grid-cols-3 grid-cols-1 md:px-4">
 						{nfts.map((nft, i) => (
 							<Creatorcard nft={nft} key={i} />
 						))}
