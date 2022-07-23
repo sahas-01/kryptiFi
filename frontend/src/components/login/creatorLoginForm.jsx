@@ -5,11 +5,11 @@ import Web3Modal from "web3modal";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
-// import { creatorAddress } from "./config";
+import { creatorAddress } from "../../blockchain/config";
 
-import NFTMarketplace from "../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import CreatorNFT from "../../blockchain/artifacts/contracts/CreatorNFT.sol/CreatorNFT.json";
 
-export default function CreateItem() {
+export default function SignupForm() {
 	const [fileUrl, setFileUrl] = useState(null);
 	const [formInput, updateFormInput] = useState({
 		price: "",
@@ -19,11 +19,13 @@ export default function CreateItem() {
 
 	async function onChange(e) {
 		const file = e.target.files[0];
+		console.log("inside onchange");
 		try {
 			const added = await client.add(file, {
 				progress: (prog) => console.log(`received: ${prog}`),
 			});
 			const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+			console.log(url);
 			setFileUrl(url);
 		} catch (error) {
 			console.log("Error uploading file: ", error);
@@ -57,16 +59,14 @@ export default function CreateItem() {
 
 		/* next, create the item */
 		const price = ethers.utils.parseUnits(formInput.price, "ether");
-		let contract = new ethers.Contract(
-			marketplaceAddress,
-			NFTMarketplace.abi,
-			signer
-		);
+		let contract = new ethers.Contract(creatorAddress, CreatorNFT.abi, signer);
+		console.log(contract);
 		let listingPrice = await contract.getListingPrice();
 		listingPrice = listingPrice.toString();
 		let transaction = await contract.createToken(url, price, {
 			value: listingPrice,
 		});
+		console.log("inside list after");
 		await transaction.wait();
 	}
 
