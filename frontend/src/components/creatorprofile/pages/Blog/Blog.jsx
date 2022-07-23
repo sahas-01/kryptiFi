@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import axios from "axios";
@@ -5,6 +6,7 @@ import BlogItem from "./BlogItem";
 import { marketplaceAddress } from "../../../../blockchain/config";
 import NFTMarketplace from "../../../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import Web3Modal from 'web3modal'
+
 const Blog = ({ wallet_address }) => {
 	const [nfts, setNfts] = useState([]);
 	useEffect(() => {
@@ -35,7 +37,9 @@ const Blog = ({ wallet_address }) => {
 					name: meta.data.name,
 					description: meta.data.description,
 					wallet_address: meta.data.wallet_address,
+					type: meta.data.type,
 					email_id: meta.data.email_id,
+
 				};
 				if (item.wallet_address === wallet_address) return item;
 				else return null;
