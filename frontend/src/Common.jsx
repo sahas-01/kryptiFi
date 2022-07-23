@@ -10,7 +10,7 @@ function Common() {
                         User
                     </button>
                 </Link>
-                <Link to='/signupform'>
+                <Link to='/creatorsignup'>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white mx-5 font-bold py-2 px-4 rounded">
                         Creator
                     </button>

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Creatorcard = (props) => {
   // const { image, title, description } = props.blog;
-  const { image, name, description } = props.nft;
+  const { image, name, description, wallet_address } = props.nft;
   return (
     <div className="w-full ">
       <div className="my-4 md:mx-4 shadow p-6 rounded-md bg-white group hover:shadow-md">
@@ -16,7 +16,7 @@ const Creatorcard = (props) => {
         </div>
         <h3>
           <a
-            href="#0"
+            href={`/creator/${wallet_address}`}
             className="block text-lg font-medium text-gray-800 hover:text-purple-600 mb-2"
           >
             {name}

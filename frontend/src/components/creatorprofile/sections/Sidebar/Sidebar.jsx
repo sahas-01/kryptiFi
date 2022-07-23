@@ -54,13 +54,13 @@ const socials = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const [amt, setAmt] = useState(1);
-  const [receiver_address, setReceiverAddress] = useState("0x48776ffAf07Dd31b22074380559E0895fAc5Cb2c");
   const [account, setAccount] = useState("");
   const [value, setValue] = React.useState(0);
   const [txs, setTxs] = useState([]);
   const ethervalue = [];
+  const {name, description, image, wallet_address, email_id} = props.clickeddata;
 
   const startPayment = async ({ setTxs, ether, to_addr }) => {
     try {
@@ -96,26 +96,21 @@ const Sidebar = () => {
 
   const stake = async () => {
     console.log(amt)
-    // transactions.methods.send(receiver_address, amt).send({ from: account });
+    // transactions.methods.send(wallet_address, amt).send({ from: account });
     await startPayment({
       setTxs,
       ether: amt.toString(),
-      to_addr: receiver_address
+      to_addr: wallet_address
     });
   }
   return (
     <aside className="sticky top-0 bg-white md:mx-8 lg:mx-4 mb-8 p-6 shadow-md rounded-md -mt-40">
-      <div className="w-24 h-24 rounded-md overflow-hidden mx-auto mb-5">
-        <img src={profile} alt="shafiqhammad" className="w-full" />
+      <div className="w-full h-3/4 rounded-md overflow-hidden mx-auto mb-5">
+        <img src={image} alt="shafiqhammad" className="w-full" />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-800 font-bold mb-1">John Doe</h1>
-        <p className="text-sm text-gray-400 mb-3">
-          Frontend Web Developer at
-          <a href="#0" className="text-purple-600 pl-1">
-            Abc Company
-          </a>
-        </p>
+        <h1 className="text-xl text-gray-800 font-bold mb-1"> {name}</h1>
+        
         <button
           onClick={stake}
           className="inline-block mb-3 rounded bg-purple-600 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide hover:bg-purple-800"
@@ -134,10 +129,7 @@ const Sidebar = () => {
           About Me
         </h3>
         <p className="text-gray-400 text font-light leading-relaxed">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus.
+          {description}
         </p>
       </div>
     </aside>
