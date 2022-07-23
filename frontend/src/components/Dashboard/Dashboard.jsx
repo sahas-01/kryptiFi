@@ -5,6 +5,7 @@ import UNavbar from '../UNavbar'
 import { UserData } from '../../Data'
 import BarChart from '../BarChart'
 import LineChart from '../LineChart'
+import AdminNav from '../AdminNav'
 const Dashboard = () => {
     
     const [userData, setUserData] = useState({
@@ -27,7 +28,7 @@ const Dashboard = () => {
     });
     return (
         <>
-            <UNavbar />
+            <AdminNav />
             <div>
                 <div class="flex flex-col mx-10">
                     <h1 className='text-2xl mt-8 mb-10'>Transaction History</h1>

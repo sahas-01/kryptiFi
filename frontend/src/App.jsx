@@ -11,6 +11,8 @@ import Sidebar from "./components/creatorprofile/sections/Sidebar/Sidebar";
 import SignupForm from "./components/Login/creatorLoginForm";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Common from "./Common";
+import creatorNFTMint from "./components/creatorNFTMint";
+import AdminItems from "./components/AdminItems";
 
 class App extends Component {
 	render() {
@@ -24,6 +26,10 @@ class App extends Component {
 					<Route exact path="/home" component={home} />
 					{/* <Route path="/creator/:id" component={creatorprofile} /> */}
 				    <Route path="/dashboard" component={Dashboard} />
+					<Route path="/creator" component={creatorprofile} />
+					<Route path="/dashboard" component={Dashboard} />
+					<Route path="/nftmint" component={creatorNFTMint} />
+					<Route path="/adminitems" component={AdminItems} />
 
 				</Switch>
 			</div>
