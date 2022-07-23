@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import logo from "../../logo.svg";
 import CreateItem from "./creatorLoginForm";
+import { create as ipfsHttpClient } from "ipfs-http-client";
+import Web3Modal from "web3modal";
+
+const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+console.log(client.add);
 
 function CreatorLogin() {
 	const [haveMetamask, sethaveMetamask] = useState(true);
