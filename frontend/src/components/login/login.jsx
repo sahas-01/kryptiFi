@@ -19,6 +19,9 @@ function Login() {
         sethaveMetamask(false);
       }
       sethaveMetamask(true);
+      localStorage.setItem('haveMetamask', true);
+      localStorage.setItem('address', accountAddress);
+      window.location.href = '/home';
     };
     checkMetamaskAvailability();
   }, []);
