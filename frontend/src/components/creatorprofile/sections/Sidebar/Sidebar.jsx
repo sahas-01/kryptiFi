@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   FaBehance,
   FaDribbble,
@@ -60,7 +60,7 @@ const Sidebar = (props) => {
   const [value, setValue] = React.useState(0);
   const [txs, setTxs] = useState([]);
   const ethervalue = [];
-  const {name, description, image, wallet_address, email_id} = props.clickeddata;
+  const { name, description, image, wallet_address, email_id } = props.clickeddata;
 
   const startPayment = async ({ setTxs, ether, to_addr }) => {
     try {
@@ -110,7 +110,11 @@ const Sidebar = (props) => {
       </div>
       <div className="text-center">
         <h1 className="text-xl text-gray-800 font-bold mb-1"> {name}</h1>
-        
+        <input className="mt-5 border rounded p-2" type="number" onChange={
+          (e) => {
+            setAmt(e.target.value)
+          }
+        } />
         <button
           onClick={stake}
           className="inline-block mb-3 rounded bg-purple-600 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide hover:bg-purple-800"
