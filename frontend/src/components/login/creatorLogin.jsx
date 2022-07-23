@@ -37,7 +37,7 @@ function CreatorLogin() {
 			setAccountAddress(accounts[0]);
 			setAccountBalance(bal);
 			setIsConnected(true);
-			CreateItem();
+			// CreateItem();
 		} catch (error) {
 			setIsConnected(false);
 		}

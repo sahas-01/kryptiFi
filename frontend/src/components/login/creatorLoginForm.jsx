@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { ethers } from "ethers";
 import { create as ipfsHttpClient } from "ipfs-http-client";
-import { useRouter } from "next/router";
 import Web3Modal from "web3modal";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
-import { marketplaceAddress } from "../../../../blockchain/config";
+// import { creatorAddress } from "./config";
 
-import NFTMarketplace from "../../../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import NFTMarketplace from "../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function CreateItem() {
 	const [fileUrl, setFileUrl] = useState(null);
@@ -17,7 +16,6 @@ export default function CreateItem() {
 		name: "",
 		description: "",
 	});
-	const router = useRouter();
 
 	async function onChange(e) {
 		const file = e.target.files[0];
@@ -70,8 +68,6 @@ export default function CreateItem() {
 			value: listingPrice,
 		});
 		await transaction.wait();
-
-		router.push("/");
 	}
 
 	return (
