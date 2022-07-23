@@ -39,6 +39,7 @@ function CreatorLogin() {
 			let balance = await provider.getBalance(accounts[0]);
 			let bal = ethers.utils.formatEther(balance);
 			setAccountAddress(accounts[0]);
+			localStorage.setItem("wallet_address", accounts[0]);
 			setAccountBalance(bal);
 			setIsConnected(true);
 			// CreateItem();

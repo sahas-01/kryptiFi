@@ -30,6 +30,7 @@ function home() {
 			data.map(async (i) => {
 				const tokenUri = await contract.tokenURI(i.tokenId);
 				const meta = await axios.get(tokenUri);
+				console.log(meta.data);
 				let price = ethers.utils.formatUnits(i.price.toString(), "ether");
 				let item = {
 					price,
@@ -39,6 +40,8 @@ function home() {
 					image: meta.data.image,
 					name: meta.data.name,
 					description: meta.data.description,
+					wallet_address: meta.data.wallet_address,
+					email_id: meta.data.email_id,
 				};
 				return item;
 			})
