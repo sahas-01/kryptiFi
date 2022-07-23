@@ -6,7 +6,7 @@ import { Switch, Route , Redirect, Link} from 'react-router-dom';
 import "./App.css";
 import creatorprofile from "./components/creatorprofile/creatorprofile";
 import home from "./components/home/home";
-import login from "./components/login/login";
+import Login from "./components/Login/Login";
 import Sidebar from "./components/creatorprofile/sections/Sidebar/Sidebar";
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="">
         <Switch>
-          <Route exact path="/" component={login} />
+          <Route exact path="/" component={Login} />
         <Route exact path="/home" component={home} />
         <Route path="/creator" component={creatorprofile} />
       </Switch>
