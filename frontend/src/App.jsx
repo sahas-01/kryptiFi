@@ -5,8 +5,8 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 import "./App.css";
 import creatorprofile from "./components/creatorprofile/creatorprofile";
 import home from "./components/home/home";
-import Login from "./components/Login/login";
-import CreatorLogin from "./components/Login/creatorLogin";
+import Login from "./components/login/login";
+import CreatorLogin from "./components/login/creatorLogin";
 import Sidebar from "./components/creatorprofile/sections/Sidebar/Sidebar";
 import SignupForm from "./components/login/creatorLoginForm";
 
