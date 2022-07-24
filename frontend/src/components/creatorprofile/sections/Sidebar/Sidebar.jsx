@@ -9,6 +9,8 @@ import {
   FaSkype,
   FaTwitter,
 } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import profile from "./../../../../images/profile.jpg";
 import { ethers } from 'ethers';
 const socials = [
@@ -79,18 +81,14 @@ const Sidebar = (props) => {
         ether, to_addr
       })
       const tx_from = tx.from;
-
-
-
-
-
-
       console.log({ ether, to_addr, tx_from });
       console.log("tx", tx);
       console.log("ethervalue", ethervalue);
+      toast(`Donation of ${amt} ether Successful`);
       setTxs([tx]);
     } catch (err) {
       console.log(err)
+      toast("Donation UnSuccessful");
     }
   };
 
@@ -136,6 +134,7 @@ const Sidebar = (props) => {
           {description}
         </p>
       </div>
+      <ToastContainer />
     </aside>
   );
 };
