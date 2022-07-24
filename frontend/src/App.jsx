@@ -4,9 +4,9 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 // Styling
 import "./App.css";
 import home from "./components/home/home";
-import Login from "./components/login/login";
-import CreatorLogin from "./components/login/creatorLogin";
-import SignupForm from "./components/login/creatorLoginForm";
+import Login from "./components/Login/login";
+import CreatorLogin from "./components/Login/creatorLogin";
+import SignupForm from "./components/Login/creatorLoginForm";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Common from "./Common";
 import creatorNFTMint from "./components/creatorNFTMint";
@@ -23,7 +23,6 @@ class App extends Component {
 					<Route exact path="/signupform" component={SignupForm} />
 					<Route exact path="/home" component={home} />
 					{/* <Route path="/creator/:id" component={creatorprofile} /> */}
-					<Route path="/dashboard" component={Dashboard} />
 					<Route path="/dashboard" component={Dashboard} />
 					<Route path="/nftmint" component={creatorNFTMint} />
 					<Route path="/adminitems" component={AdminItems} />

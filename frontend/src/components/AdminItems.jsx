@@ -41,6 +41,7 @@ export default function CreatorDashboard() {
 					seller: i.seller,
 					owner: i.owner,
 					image: meta.data.image,
+					type: meta.data.type,
 				};
 				return item;
 			})
