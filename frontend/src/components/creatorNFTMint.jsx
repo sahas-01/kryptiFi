@@ -3,6 +3,8 @@ import { ethers } from "ethers";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import Web3Modal from "web3modal";
 import AdminNav from "./AdminNav";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
@@ -71,6 +73,7 @@ export default function NFTMarketplaceMint() {
 			value: listingPrice,
 		});
 		await transaction.wait();
+		toast("NFT Token Created Successfully");
 		console.log("Transaction complete!");
 	}
 

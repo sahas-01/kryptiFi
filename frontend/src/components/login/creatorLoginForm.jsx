@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import Web3Modal from "web3modal";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
@@ -72,7 +74,9 @@ export default function SignupForm() {
 			value: listingPrice,
 		});
 		console.log("inside list after");
+		toast("Profile Created Successfully");
 		await transaction.wait();
+		
 	}
 
 	return (
@@ -118,6 +122,7 @@ export default function SignupForm() {
 					</button>
 				</div>
 			</div>
+			<ToastContainer />
 		</>
 	);
 }

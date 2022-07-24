@@ -6,6 +6,8 @@ import BlogItem from "./BlogItem";
 import { marketplaceAddress } from "../../../../blockchain/config";
 import NFTMarketplace from "../../../../blockchain/artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import Web3Modal from 'web3modal'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Blog = ({ wallet_address }) => {
 	const [nfts, setNfts] = useState([]);
@@ -61,6 +63,7 @@ const Blog = ({ wallet_address }) => {
       value: price
     })
     await transaction.wait()
+	toast("NFT Purchased Successfully");
     loadNFTs()
   }
 	return (
