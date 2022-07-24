@@ -73,8 +73,9 @@ export default function NFTMarketplaceMint() {
 		let transaction = await contract.createToken(url, price, {
 			value: listingPrice,
 		});
-		await transaction.wait();
 		toast("NFT Token Created Successfully");
+		await transaction.wait();
+		
 		console.log("Transaction complete!");
 	}
 
@@ -151,6 +152,7 @@ export default function NFTMarketplaceMint() {
 					</button>
 				</div>
 			</div>
+			<ToastContainer/>
 		</>
 	);
 }

@@ -82,10 +82,10 @@ export default function SignupForm() {
 	return (
 		<>
 			<AdminNav />
-			<div className="flex justify-center">
+			<div className="flex justify-center mt-20 items-center">
 				<div className="w-1/2 flex flex-col pb-12">
 					<input
-						placeholder="Asset Name"
+						placeholder="Name"
 						className="mt-8 border rounded p-4"
 						onChange={(e) =>
 							updateFormInput({ ...formInput, name: e.target.value })
@@ -99,7 +99,7 @@ export default function SignupForm() {
 						}
 					/>
 					<textarea
-						placeholder="Asset Description"
+						placeholder="Bio"
 						className="mt-2 border rounded p-4"
 						onChange={(e) =>
 							updateFormInput({ ...formInput, description: e.target.value })
