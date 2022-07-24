@@ -100,12 +100,16 @@ export default function NFTMarketplaceMint() {
 							updateFormInput({ ...formInput, price: e.target.value })
 						}
 					/>
+					<div>
+					<label className="mr-2">Video - </label>
 					<input
 						type="radio"
 						name="nfttype"
 						value="1"
 						onChange={(e) => setNfttype(e.target.value)}
 					/>
+					</div>
+					
 					<input
 						type="file"
 						name="Asset"
