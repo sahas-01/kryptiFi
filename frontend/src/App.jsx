@@ -17,9 +17,9 @@ class App extends Component {
 		return (
 			<div className="">
 				<Switch>
-					<Route path="/common" component={Common} />
-					<Route exact path="/" component={Login} />
-					<Route exact path="/creatorsignup" component={CreatorLogin} />
+					<Route exact path="/" component={Common} />
+					<Route exact path="/loginuser" component={Login} />
+					<Route exact path="/logincreator" component={CreatorLogin} />
 					<Route exact path="/signupform" component={SignupForm} />
 					<Route exact path="/home" component={home} />
 					{/* <Route path="/creator/:id" component={creatorprofile} /> */}

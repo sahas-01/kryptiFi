@@ -127,7 +127,7 @@ export default function NFTMarketplaceMint() {
 						))}
 					<button
 						onClick={listNFTForSale}
-						className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg"
+						className="font-bold mt-4 bg-gray-800 text-white rounded p-4 shadow-lg"
 					>
 						Create NFT
 					</button>
