@@ -3,8 +3,9 @@ import { ethers } from "ethers";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import Web3Modal from "web3modal";
 import AdminNav from "./AdminNav";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import makeRequest from "./videoCrop";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
@@ -104,15 +105,26 @@ export default function NFTMarketplaceMint() {
 						}
 					/>
 					<div>
-					<label className="mr-2">Video - </label>
-					<input
-						type="radio"
-						name="nfttype"
-						value="1"
-						onChange={(e) => setNfttype(e.target.value)}
-					/>
+						<div className="flex mt-4 ">
+							<button
+								name="nfttype"
+								value="1"
+								onClick={(e) => setNfttype(e.target.value)}
+								className="bg-gray-800 p-2 mr-4 text-white focus:outline-none focus:ring focus:ring-green-500"
+							>
+								Video
+							</button>
+							<button
+								name="nfttype"
+								value="2"
+								onClick={(e) => setNfttype(e.target.value)}
+								className="bg-gray-800 p-2 text-white focus:outline-none focus:ring focus:ring-green-500"
+							>
+								Highlights
+							</button>
+						</div>
 					</div>
-					
+
 					<input
 						type="file"
 						name="Asset"
@@ -120,10 +132,16 @@ export default function NFTMarketplaceMint() {
 						onChange={onChange}
 					/>
 					{fileUrl &&
-						(nfttype ? (
+						(nfttype == 1 ? (
 							<video src={fileUrl} controls />
-						) : (
+						) : nfttype == 0 ? (
 							<img src={fileUrl} />
+						) : (
+                            
+							<video
+								src="https://ipfs.infura.io/ipfs/QmfU34c2rffvLax4iGEUbvYbBY9fgJ6sugnQTAtuy2sjUS"
+								controls
+							/>
 						))}
 					<button
 						onClick={listNFTForSale}
