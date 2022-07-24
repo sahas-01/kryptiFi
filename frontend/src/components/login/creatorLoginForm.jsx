@@ -13,7 +13,7 @@ import AdminNav from "../AdminNav";
 export default function SignupForm() {
 	const [fileUrl, setFileUrl] = useState(null);
 	const [formInput, updateFormInput] = useState({
-		price: "",
+		price: "2",
 		name: "",
 		description: "",
 		email_id: "",
@@ -101,18 +101,12 @@ export default function SignupForm() {
 							updateFormInput({ ...formInput, description: e.target.value })
 						}
 					/>
-					<input
-						placeholder="Asset Price in Eth"
-						className="mt-2 border rounded p-4"
-						onChange={(e) =>
-							updateFormInput({ ...formInput, price: e.target.value })
-						}
-					/>
+					
 					<input type="file" name="Asset" className="my-4" onChange={onChange} />
 					{fileUrl && <img className="rounded mt-4" width="350" src={fileUrl} />}
 					<button
 						onClick={listNFTForSale}
-						className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg"
+						className="font-bold mt-4 bg-gray-800 text-white rounded p-4 shadow-lg"
 					>
 						Create Profile
 					</button>
