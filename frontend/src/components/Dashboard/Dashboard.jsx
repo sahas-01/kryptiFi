@@ -6,8 +6,14 @@ import { UserData } from '../../Data'
 import BarChart from '../BarChart'
 import LineChart from '../LineChart'
 import AdminNav from '../AdminNav'
+import axios from 'axios'
+
 const Dashboard = () => {
-    
+    const api_key = "ZAC8GCM5D7A2RYV6VH6MRJ5IDR34HXQ4S7"
+    const [transactions, setTransactions] = useState('')
+    const [address, setAddress] = useState("0xb91dd8225Db88dE4E3CD7B7eC538677A2c1Be8Cb")
+    const url = `https://api.polygonscan.com/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${api_key}`
+    console.log(url)
     const [userData, setUserData] = useState({
         labels: UserData.map((data) => data.year),
         datasets: [
@@ -26,6 +32,17 @@ const Dashboard = () => {
             },
         ],
     });
+    useEffect(() => {
+        axios.get(url).then((res) => {
+            setTransactions(res.data.result)
+        }).catch((err) => {
+            console.log(err)
+        }).finally(() => {
+            console.log("finally")
+        }
+        )
+    }, [])
+    console.log(transactions)
     return (
         <>
             <AdminNav />
@@ -53,10 +70,19 @@ const Dashboard = () => {
                       <Tables  />
                     )
                   })} */}
+                                        {
+                                            transactions && transactions.map((item, index) => {
+                                                return (
+                                                    <tr>
+                                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{index + 1}</td>
+                                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{item.from}</td>
+                                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{item.gasUsed}</td>
+                                                    </tr>
+                                                )
+                                            }
 
-                                        <Tables />
-                                        <Tables />
-                                        <Tables />
+                                            )
+                                        }
                                     </tbody>
                                 </table>
                             </div>
