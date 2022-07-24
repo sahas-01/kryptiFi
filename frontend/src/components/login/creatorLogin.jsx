@@ -45,7 +45,7 @@ function CreatorLogin() {
 			setTimeout(() => {
 				window.location.href = "/signupform";
 			}
-				, 1000);
+				, 3000);
 			// CreateItem();
 		} catch (error) {
 			setIsConnected(false);
@@ -58,14 +58,14 @@ function CreatorLogin() {
 					<div className="App-header">
 						{isConnected ? (
 							<div className="card">
-								<div className="card-row">
+								<div className="card-row text-black">
 									<h3>Wallet Address:</h3>
 									<p>
 										{accountAddress.slice(0, 4)}...
 										{accountAddress.slice(38, 42)}
 									</p>
 								</div>
-								<div className="card-row">
+								<div className="card-row text-black">
 									<h3>Wallet Balance:</h3>
 									<p>{accountBalance}</p>
 								</div>
@@ -74,7 +74,7 @@ function CreatorLogin() {
 							<img src={logo} className="App-logo" alt="logo" />
 						)}
 						{isConnected ? (
-							<p className="info">🎉 Connected Successfully</p>
+							<p className="info text-black">🎉 Connected Successfully</p>
 						) : (
 							<button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 text-xl rounded" onClick={connectWallet}>
 								Connect
