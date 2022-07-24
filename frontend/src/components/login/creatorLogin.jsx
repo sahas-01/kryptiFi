@@ -42,6 +42,10 @@ function CreatorLogin() {
 			localStorage.setItem("wallet_address", accounts[0]);
 			setAccountBalance(bal);
 			setIsConnected(true);
+			setTimeout(() => {
+				window.location.href = "/signupform";
+			}
+				, 1000);
 			// CreateItem();
 		} catch (error) {
 			setIsConnected(false);
@@ -72,7 +76,7 @@ function CreatorLogin() {
 						{isConnected ? (
 							<p className="info">🎉 Connected Successfully</p>
 						) : (
-							<button className="btn" onClick={connectWallet}>
+							<button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 text-xl rounded" onClick={connectWallet}>
 								Connect
 							</button>
 						)}
