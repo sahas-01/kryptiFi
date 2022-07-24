@@ -19,7 +19,7 @@ function Common() {
         <h3 className=' text-4l mx-auto my-5'>
           Sign in if you are a user
         </h3>
-                     <Link to='/'>
+                     <Link to='/loginuser'>
                     <button className="bg-gray-800 hover:bg-gray-700 text-white  font-bold py-2 px-4 rounded w-full">
                         User
                     </button>
