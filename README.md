@@ -1,5 +1,5 @@
 
-## 🧐 Objective 
+## 🧐 Problem at hand 
 
 Nowdays underrated youtubers and content
 creators face many problems while making
@@ -34,6 +34,7 @@ YouTube or Instagram.
  - IPFS
  - Ethereum Ecosystem
  - Symbl.ai, nltk
+ - Metamask 
  
 ## ✨ Future Scope
  - Unique NFT Collections per video.
