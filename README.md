@@ -27,6 +27,15 @@ YouTube or Instagram.
  - Ethereum Ecosystem
  - Symbl.ai, nltk
  - Metamask 
+
+## Screenshots
+
+#### Home page
+<img src="https://i.ibb.co/fYbcMLF/kryptify-home.jpg" alt="kryptify-home" border="5">
+
+#### Creator Profile creation
+<img src="https://i.ibb.co/ZW2JQNR/creator-profile.jpg" alt="creator-profile" border="0">
+<img src="https://i.ibb.co/S6KSbkK/creator-create.jpg" alt="creator-create" border="0">
  
 ## ✨ Future Scope
  - Unique NFT Collections per video.
