@@ -1,21 +1,13 @@
 
-## 🧐 Problem at hand 
+## 🧐 Abstract
 
-Nowdays underrated youtubers and content
-creators face many problems while making
-content as they have to give their most of the
-revenue to their repested platform which
-makes it difficult for them to carry forward
-their passion and do social work.
+There are many underrated and unrecognized content creators who work hard every single day without much recognition. With the existing social media platforms, these creators do not get enough for the work they put in. What if we can help them by connecting their abilities with new-age tech?
 
-## ⚒️ About The Project
-We have built a dApp on top of the ethereum ecosystem by which content creators could mint their own NFTs and sell it to their fanbase. The users can also donate these creators and avail many of the perks such as access to exclusive video NFTs.
+
+## ⚒️ About the Project
+We have built a dApp on top of the ethereum ecosystem by which content creators can mint their own NFTs and sell it to their fanbase. Users can also donate to these creators to show support to them by way of donation of some Crypto(in this case: ETH) and can avail some perks such as access to exclusive video NFTs. Apart from this, another feature which has been implemented is highlight extraction. In this, the creator can upload a specific video and highlights of important parts of the video can be generated from it and be sold as video NFTs as mentioned above.
 
 ## 🙌🏻 Our Solution
-### Middleman Deduction
-- Easier monetization for smaller YouTube
-creators and user-friendly management
-services.
 ### Decentralized video storage means less censorship
 - Decentralized video storage allows video to
 be passed between users, free from the
@@ -45,4 +37,4 @@ YouTube or Instagram.
 * [Pranav Desai](https://github.com/pranavvdesai)
 * [Swarup Kharul](https://github.com/SwarupKharul)
 * [Sahas Vivek](https://github.com/sahas-01)
-* [Harsh Singh](https://github.com/SwarupKharul)
+* [Harsh Singh](https://github.com/HarshS1611)
