@@ -9,7 +9,7 @@ import Creatorcard from "../Creatorcard";
 import { ethers } from "ethers";
 import axios from "axios";
 import Web3Modal from "web3modal";
-import { creatorAddress } from "../../config";
+import { creatorAddress } from "../../blockchain/config";
 import CreatorNFT from "../../blockchain/artifacts/contracts/CreatorNFT.sol/CreatorNFT.json";
 
 function home() {
@@ -19,7 +19,7 @@ function home() {
 		loadNFTs();
 	}, []);
 	async function loadNFTs() {
-		const provider = new ethers.providers.JsonRpcProvider();
+		const provider = new ethers.providers.JsonRpcProvider("https://matic-mumbai.chainstacklabs.com");
 		const contract = new ethers.Contract(
 			creatorAddress,
 			CreatorNFT.abi,
