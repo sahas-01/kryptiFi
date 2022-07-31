@@ -86,6 +86,8 @@ function home() {
 					</div>
 				</div>
 			) : (
+				<>
+				<UNavbar/>
 				<main className="min-h-screen relative bg-gray-50 pb-10">
 					<ProfileCover />
 					<div className="container px-4">
@@ -100,6 +102,7 @@ function home() {
 					</div>
 					<Footer />
 				</main>
+				</>
 			)}
 		</div>
 	);

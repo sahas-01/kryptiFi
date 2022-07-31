@@ -45,7 +45,7 @@ function CreatorLogin() {
 			setTimeout(() => {
 				window.location.href = "/signupform";
 			}
-				, 3000);
+				, 2000);
 			// CreateItem();
 		} catch (error) {
 			setIsConnected(false);
