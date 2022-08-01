@@ -13,8 +13,8 @@ module.exports = {
    networks: {
       hardhat: {},
       polygon_mumbai: {
-         url: API_URL,
-         accounts: [`0x${PRIVATE_KEY}`]
+         url: "https://polygon-mumbai.g.alchemy.com/v2/GQoYlYBndP_P6LCYu1JlBbErSykwGX3K",
+         accounts: ["01e05a44a91a8a23d78e3ba8c0e2d88a809745ebbfcbde4018db488e039af0fe"]
       }
    },
 }
