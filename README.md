@@ -5,7 +5,7 @@ There are many underrated and unrecognized content creators who work hard every 
 
 
 ## ⚒️ About the Project
-We have built a dApp on top of the ethereum ecosystem by which content creators can mint their own NFTs and sell it to their fanbase. Users can also donate to these creators to show support to them by way of donation of some Crypto(in this case: ETH) and can avail some perks such as access to exclusive video NFTs. Apart from this, another feature which has been implemented is highlight extraction. In this, the creator can upload a specific video and highlights of important parts of the video can be generated from it and be sold as video NFTs as mentioned above.
+We have built a dApp on top of the polygon ecosystem by which content creators can mint their own NFTs and sell it to their fanbase. Users can also donate to these creators to show support to them by way of donation of some Crypto(in this case: ETH) and can avail some perks such as access to exclusive video NFTs. Apart from this, another feature which has been implemented is highlight extraction. In this, the creator can upload a specific video and highlights of important parts of the video can be generated from it and be sold as video NFTs as mentioned above.
 
 ## 🙌🏻 Our Solution
 ### Decentralized video storage means less censorship
@@ -24,7 +24,7 @@ YouTube or Instagram.
 ## 👩🏻‍💻Tech Stack
  - React + TailwindCSS
  - IPFS
- - Ethereum Ecosystem
+ - Polygon Ecosystem
  - Symbl.ai, nltk
  - Metamask 
 
