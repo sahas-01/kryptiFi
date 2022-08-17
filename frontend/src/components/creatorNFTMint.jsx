@@ -1,13 +1,27 @@
 import { useState } from "react";
 import { ethers } from "ethers";
-import { create as ipfsHttpClient } from "ipfs-http-client";
+import { create as ipfsClient } from "ipfs-http-client";
 import Web3Modal from "web3modal";
 import AdminNav from "./AdminNav";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Buffer } from 'buffer'; 
+window.Buffer = Buffer;
 // import makeRequest from "./videoCrop";
 
-const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+const projectId = '2DUSiZ1uyhnsaYScq8viuDHP5KU'
+const projectSecret = '40e47177e103027c757624ec5d37fdc2'
+const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+
+ const client = ipfsClient({
+    host: 'ipfs.infura.io',
+    port: 5001,
+    protocol: 'https',
+    apiPath: '/api/v0',
+    headers: {
+      authorization: auth
+    }
+  })
 
 import { marketplaceAddress } from "../blockchain/config";
 
@@ -28,7 +42,7 @@ export default function NFTMarketplaceMint() {
 			const added = await client.add(file, {
 				progress: (prog) => console.log(`received: ${prog}`),
 			});
-			const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+			const url = `https://kryptifi.infura-ipfs.io/ipfs/${added.path}`;
 			setFileUrl(url);
 		} catch (error) {
 			console.log("Error uploading file: ", error);
@@ -38,15 +52,16 @@ export default function NFTMarketplaceMint() {
 		const { name, description, price } = formInput;
 		if (!name || !description || !price || !fileUrl) return;
 		/* first, upload to IPFS */
-		const data = JSON.stringify({
-			name,
-			description,
-			image: fileUrl,
-			type: nfttype,
-		});
+		
 		try {
+			const data = JSON.stringify({
+				name,
+				description,
+				image: fileUrl,
+				type: nfttype,
+			});
 			const added = await client.add(data);
-			const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+			const url = `https://kryptifi.infura-ipfs.io/ipfs/${added.path}`;
 			/* after file is uploaded to IPFS, return the URL to use it in the transaction */
 			return url;
 		} catch (error) {
