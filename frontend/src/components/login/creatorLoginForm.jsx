@@ -4,6 +4,7 @@ import { create as ipfsClient } from "ipfs-http-client";
 import Web3Modal from "web3modal";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import create from "../../blockchain/artifacts/contracts/CreatorNFT.sol/CreatorNFT.json";
 import { Buffer } from 'buffer'; 
 window.Buffer = Buffer;
 
@@ -54,15 +55,15 @@ export default function SignupForm() {
 		const { name, description, price, email_id } = formInput;
 		if (!name || !description || !price || !fileUrl || !email_id) return;
 		/* first, upload to IPFS */
-		
+		const data = JSON.stringify({
+			name,
+			description,
+			image: fileUrl,
+			wallet_address: localStorage.getItem("wallet_address"),
+			email_id,
+		});
 		try {
-			const data = JSON.stringify({
-				name,
-				description,
-				image: fileUrl,
-				wallet_address: localStorage.getItem("wallet_address"),
-				email_id,
-			});
+			
 			const added = await client.add(data);
 			const url = `https://kryptifi.infura-ipfs.io/ipfs/${added.path}`;
 			/* after file is uploaded to IPFS, return the URL to use it in the transaction */

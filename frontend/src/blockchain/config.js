@@ -1,4 +1,4 @@
 
-  export const marketplaceAddress = "0x132bda3d8fd144C829a348A32cbe581d5450aFE4"
-  export const creatorAddress = "0xcE8e71356ABF6b8F99cA3BfFf092Ac34928236f2"
+  export const marketplaceAddress = "0x8D16aA7122A865E2bAaaA3663072cb046C75bCd5"
+  export const creatorAddress = "0x62B3744a3D424c3da942154aba2B73311a2c97ab"
   
