@@ -12,7 +12,6 @@ import Common from "./Common";
 import creatorNFTMint from "./components/creatorNFTMint";
 import AdminItems from "./components/AdminItems";
 import UserNFT from "./components/UserNFT";
-// import IDLogin from "./components/IDLogin";
 
 class App extends Component {
 	render() {
@@ -29,7 +28,6 @@ class App extends Component {
 					<Route path="/nftmint" component={creatorNFTMint} />
 					<Route path="/adminitems" component={AdminItems} />
 					<Route path="/usernfts" component={UserNFT} />
-// 					<Route path="/idlogin" component={IDLogin} />
 				</Switch>
 			</div>
 		);
