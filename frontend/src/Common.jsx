@@ -22,7 +22,7 @@ function Common() {
                 </button>
                 <Link to="/logincreator">
                     <button className="bg-blue-500 h-60	w-60  text-2xl  hover:bg-blue-700 text-white mx-5 font-bold py-2 px-4 rounded">
-                        Creator
+                        Land Owner
                     </button>
                 </Link>
             </div>
