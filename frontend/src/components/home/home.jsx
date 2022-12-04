@@ -56,7 +56,7 @@ function home() {
 				<div>
 					<UNavbar />
 					<div>
-						<h1 className="text-2xl font-bold mx-10 mt-5">Creators</h1>
+						<h1 className="text-2xl font-bold mx-10 mt-5">Land Owners</h1>
 						<section className="pb-10">
 							<div className="grid lg:grid-cols-3 grid-cols-1 md:px-4">
 								{nfts.map((nft, i) => (
@@ -87,21 +87,21 @@ function home() {
 				</div>
 			) : (
 				<>
-				<UNavbar/>
-				<main className="min-h-screen relative bg-gray-50 pb-10">
-					<ProfileCover />
-					<div className="container px-4">
-						<div className="flex flex-wrap px-4">
-							<div className="w-full lg:w-1/3 ">
-								<Sidebar clickeddata={clickeddata} />
-							</div>
-							<div className="w-full lg:w-2/3 ">
-								<Navbar wallet_address={clickeddata.wallet_address} />
+					<UNavbar />
+					<main className="min-h-screen relative bg-gray-50 pb-10">
+						<ProfileCover />
+						<div className="container px-4">
+							<div className="flex flex-wrap px-4">
+								<div className="w-full lg:w-1/3 ">
+									<Sidebar clickeddata={clickeddata} />
+								</div>
+								<div className="w-full lg:w-2/3 ">
+									<Navbar wallet_address={clickeddata.wallet_address} />
+								</div>
 							</div>
 						</div>
-					</div>
-					<Footer />
-				</main>
+						<Footer />
+					</main>
 				</>
 			)}
 		</div>

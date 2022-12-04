@@ -9,7 +9,7 @@ function Common() {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <h1 className='text-3xl pt-4 font-bold'>Welcome to KryptiFi</h1>
+                <h1 className='text-3xl pt-4 font-bold'>Welcome to Decentraland</h1>
             </div>
             <div className="flex items-center justify-center h-screen">
 
